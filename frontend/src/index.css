@@ -1,5 +1,22 @@
 /* Imports Tailwind obligatoires */
 @import 'tailwindcss';
+/* Variables CSS (source de vérité) */
+:root {
+  --ink: #0d1b2a;
+  --prussian: #1b263b;
+  --dusk: #415a77;
+  --lavender: #778da9;
+  --alabaster: #e0e1dd;
+}
+
+/* Mapping Tailwind */
+@theme {
+  --color-ink: var(--ink);
+  --color-prussian: var(--prussian);
+  --color-dusk: var(--dusk);
+  --color-lavender: var(--lavender);
+  --color-alabaster: var(--alabaster);
+}
 
 
 

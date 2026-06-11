@@ -49,7 +49,7 @@ export default function Dashboard() {
       {/* En-tête personnalisé */}
       <div>
         <h1 className="text-2xl font-bold text-slate-100">
-          Bonjour, {user?.username} 👋
+          Bonjour, {user?.username} 
         </h1>
         <p className="text-slate-400 text-sm mt-1">
           Objectif : {GOAL_LABELS[user?.goal ?? 'maintain']}

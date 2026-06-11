@@ -19,10 +19,10 @@ export default function App() {
           position="top-right"
           toastOptions={{
             style: {
-              background: '#1E293B',
-              color: '#F1F5F9',
-              border: '1px solid #334155',
-            },
+                background: '#0d1b2a', // Ink Black (fond principal)
+                color: '#e0e1dd',      // Alabaster Grey (texte)
+                border: '1px solid #415a77', // Dusk Blue (bordure douce)
+             },
           }}
         />
         <Routes>
