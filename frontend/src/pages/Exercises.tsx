@@ -134,7 +134,7 @@ export default function Exercises() {
         <h1 className="text-2xl font-bold text-slate-100">Exercices</h1>
         <button
           onClick={openCreate}
-          className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold px-4 py-2.5 rounded-lg transition-colors"
+          className="flex items-center gap-2 bg-gradient-to-br from prussian to-dusk hover:bg-lavender text-alabaster text-sm font-semibold px-4 py-2.5 rounded-lg transition-colors"
         >
           <Plus size={15} />
           Ajouter

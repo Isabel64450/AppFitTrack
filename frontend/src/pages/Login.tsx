@@ -78,7 +78,7 @@ export default function Login() {
             </button>
           </form>
           <p className="text-center text-sm text-lavender mt-5">
-            Pas de compte ?{/* espace */}
+            Pas de compte ?
             <Link to="/register" className="text-dusk hover:text-alabaster
               font-medium transition-colors">
               S'inscrire

@@ -58,7 +58,7 @@ export default function Dashboard() {
       </div>
 
       {/* 4 cartes de statistiques en grille */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard icon={<Activity size={18} className="text-indigo-400"/>}
           label="Séances totales"
           value={stats?.summary.total_workouts ?? 0}

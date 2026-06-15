@@ -44,18 +44,18 @@ export default function Register() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0F172A] flex items-center justify-center p-4">
+    <div className="min-h-screen bg-ink flex items-center justify-center p-4">
       <div className="w-full max-w-sm">
-        {/* Logo identique à Login */}
+      
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-14 h-14
-            rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 mb-4">
-            <Dumbbell size={28} className="text-white" />
+            rounded-2xl bg-gradient-to-br from-prussian to-dusk mb-4">
+            <Dumbbell size={28} className="text-alabaster" />
           </div>
-          <h1 className="text-2xl font-bold text-slate-100">FitTrack</h1>
-          <p className="text-slate-400 text-sm mt-1">Crée ton compte gratuitement</p>
+          <h1 className="text-2xl font-bold text-alabaster">FitTrack</h1>
+          <p className="text-lavander text-sm mt-1">Crée ton compte gratuitement</p>
         </div>
-        <div className="bg-[#1E293B] border border-slate-700/50 rounded-2xl p-6">
+        <div className="bg-prussian border border-dusk/50 rounded-2xl p-6">
           <form onSubmit={handleSubmit} className="space-y-4">
             <div><label className={labelCls}>Nom d'utilisateur</label>
               <input name="username" required value={form.username}
@@ -86,13 +86,13 @@ export default function Register() {
               </div>
             </div>
             <button type="submit" disabled={loading}
-              className="w-full bg-indigo-600 hover:bg-indigo-500
-                disabled:opacity-60 text-white font-semibold py-2.5
+              className="w-full bg-dusk hover:bg-lavender
+                disabled:bg-prussian disabled:text-lavender text-alabaster font-semibold py-2.5
                 rounded-lg transition-colors text-sm mt-2">
               {loading ? 'Création...' : 'Créer mon compte'}
             </button>
           </form>
-          <p className="text-center text-sm text-slate-500 mt-5">
+          <p className="text-center text-sm text-alabaster mt-5">
             Déjà un compte ?{/* */}
             <Link to="/login" className="text-indigo-400 hover:text-indigo-300
               font-medium transition-colors"> Se connecter</Link>

@@ -15,6 +15,9 @@ export default defineConfig({
 
     port: 3000,
     // Port du serveur de développement Vite
+    watch: {
+      usePolling: true,
+    },
 
     proxy: {
       '/api': {

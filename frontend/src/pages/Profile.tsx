@@ -72,7 +72,7 @@ export default function Profile() {
       <div className="bg-[#1E293B] border border-slate-700/50 rounded-2xl p-6">
         <div className="flex items-center gap-5">
           {/* Avatar avec initiales — pas d'image = pas de requête externe */}
-          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-2xl font-bold text-white shrink-0">
+          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-prussian to-dusk flex items-center justify-center text-2xl font-bold text-white shrink-0">
             {initials}
           </div>
           <div>
