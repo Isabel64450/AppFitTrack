@@ -31,11 +31,8 @@ export default function Sidebar({open, setOpen}: SidebarProps) {
   return (
     <div>
       {open && (
-  <div
-    className="fixed inset-0 bg-black/50 z-40 lg:hidden"
-    onClick={() => setOpen(false)}
-  />
-)}
+     <div className="fixed inset-0 bg-black/50 z-40 lg:hidden" onClick={() => setOpen(false)}/>
+        )}
     <aside className={`
     fixed lg:static z-50
     w-60 bg-[#0D1117] border-r border-slate-800
