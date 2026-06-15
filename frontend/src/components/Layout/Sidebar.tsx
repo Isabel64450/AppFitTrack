@@ -9,7 +9,13 @@ const navItems = [
   { to: '/profile', icon: User, label: 'Profil' },
 ]
 
-export default function Sidebar() {
+type SidebarProps = {
+  open: boolean
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+
+export default function Sidebar({open, setOpen}: SidebarProps) {
   const { user, logout } = useAuth()
   const navigate = useNavigate()
 
@@ -23,7 +29,21 @@ export default function Sidebar() {
     : 'FT'
 
   return (
-    <aside className="w-60 bg-[#0D1117] border-r border-slate-800 flex flex-col h-screen sticky top-0 shrink-0">
+    <div>
+      {open && (
+  <div
+    className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+    onClick={() => setOpen(false)}
+  />
+)}
+    <aside className={`
+    fixed lg:static z-50
+    w-60 bg-[#0D1117] border-r border-slate-800
+    flex flex-col h-full lg:h-screen
+    transition-transform duration-300
+    ${open ? 'translate-x-0' : '-translate-x-full'}
+    lg:translate-x-0
+  `}>
       {/* Logo */}
       <div className="px-5 py-5 border-b border-slate-800">
         <div className="flex items-center gap-2.5">
@@ -77,5 +97,6 @@ export default function Sidebar() {
         </button>
       </div>
     </aside>
+    </div>
   )
 }
