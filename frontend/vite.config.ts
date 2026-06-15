@@ -8,6 +8,7 @@ export default defineConfig({
   
   server: {
     host: '0.0.0.0',
+    allowedHosts: ['appfittrack-5aw6.onrender.com'],
     // OBLIGATOIRE avec Docker :
     // Par défaut, Vite écoute sur 127.0.0.1 (loopback)
     // Avec 0.0.0.0, il écoute sur toutes les interfaces
