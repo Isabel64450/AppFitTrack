@@ -3,7 +3,7 @@
      id:number 
      username:   string
      email: string
-     weight?:number
+     weight?:number | null
      goal?:string 
      created_at: string }
 
@@ -58,7 +58,8 @@ export interface ProgressionStats {
      total_minutes: number}>
      byCategory: Array<{
      category: string
-     exercise_count: number }>
+     exercise_count: number 
+     total_reps: number }>
      recent: Array<{
                      id: number
                      title: string
