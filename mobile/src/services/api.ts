@@ -5,6 +5,7 @@ import { API_URL } from '../config'
 // Création d'une instance Axios configurée
 // (différent de axios.get/post direct : on centralise baseURL et timeout)
 // timeout 10s : évite qu'une requête reste bloquée indéfiniment sur réseau lent
+console.log("API URL utilisée :", API_URL);
 const api = axios.create({
   baseURL: API_URL, // Toutes les URLs seront relatives à cette base (ex: '/exercises' → 'http://192.168.x.x:5000/api/exercises')
   timeout: 10000,   // Abandonne la requête après 10 secondes sans réponse

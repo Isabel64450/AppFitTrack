@@ -42,6 +42,7 @@ export default function RegisterScreen({ navigation }: Props) {
   const [loading, setLoading]   = useState(false)
 
   const handleSubmit = async () => {
+   
     // Validation des champs obligatoires avant l'envoi
     if (!username || !email || !password) {
       Toast.show({ type: 'error', text1: 'Champs requis', text2: 'Nom, email et mot de passe sont obligatoires' })
@@ -49,6 +50,7 @@ export default function RegisterScreen({ navigation }: Props) {
     }
     setLoading(true)
     try {
+       
       await register({
         username,
         email,
@@ -58,12 +60,15 @@ export default function RegisterScreen({ navigation }: Props) {
         // Si le champ est vide, on envoie undefined (le backend l'accepte comme optionnel)
         weight: weight ? parseFloat(weight) : undefined, // champ optionnel — omis si vide
       })
+      
       // Pas besoin de navigate() — AuthContext met user à jour, RootNavigator redirige automatiquement
     } catch (err: unknown) {
+         
       const msg =
         err instanceof Error && 'response' in err
           ? (err as { response?: { data?: { error?: string } } }).response?.data?.error
           : undefined
+          
       Toast.show({ type: 'error', text1: msg || 'Erreur lors de l\'inscription' })
     } finally {
       setLoading(false)

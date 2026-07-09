@@ -3,66 +3,54 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import api from '../services/api'
 import { User } from '../types'
 
-// ── Types TypeScript ─────────────────────────────────────────
 
-// Ce que le Context expose à tous les composants enfants
 interface AuthContextType {
-  user: User | null               // Utilisateur connecté, ou null si déconnecté
-  loading: boolean                // true pendant la vérification initiale du token
+  user: User | null              
+  loading: boolean               
   login: (email: string, password: string) => Promise<void>
   register: (data: RegisterData) => Promise<void>
   logout: () => Promise<void>
 }
 
-// Données envoyées à l'API pour créer un compte
+
 interface RegisterData {
   username: string
   email: string
   password: string
   goal: 'lose' | 'maintain' | 'gain'
-  weight?: number // Le "?" rend le champ optionnel en TypeScript
+  weight?: number 
 }
 
-// ── Création du Context ─────────────────────────────────────
-// createContext crée un "canal" de communication entre composants.
-// La valeur initiale null sera remplacée dès que AuthProvider se monte.
+
 const AuthContext = createContext<AuthContextType | null>(null)
 
-// ── Provider ─────────────────────────────────────────────────
-// AuthProvider enveloppe toute l'app (dans App.tsx).
-// Il maintient l'état d'auth et rend les fonctions disponibles via le Context.
-// { children }: ReactNode — children représente tout ce qui est entre les balises <AuthProvider>...</AuthProvider>
+
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser]       = useState<User | null>(null)
-  const [loading, setLoading] = useState(true) // true au démarrage : on n'a pas encore vérifié le token
-
-  // ── Vérification du token au démarrage ─────────────────────
-  // useEffect avec [] en dépendances = s'exécute UNE SEULE FOIS au montage du composant.
-  // C'est l'équivalent de componentDidMount dans les class components.
+  const [loading, setLoading] = useState(true) 
+ 
   useEffect(() => {
     const initAuth = async () => {
       try {
-        // 1. Lit le token sauvegardé lors de la dernière connexion
+        
         const token = await AsyncStorage.getItem('token')
         if (token) {
-          // 2. Vérifie que le token est encore valide en demandant le profil
-          //    L'intercepteur dans api.ts ajoute automatiquement le token au header
+          
           const res = await api.get('/auth/me')
-          setUser(res.data.user) // Token valide → on restaure la session
+          setUser(res.data.user) 
         }
-        // Si pas de token → user reste null → l'app affiche l'écran de connexion
+      
       } catch {
-        // Token expiré ou invalide → on le supprime proprement
+       
         await AsyncStorage.removeItem('token')
       } finally {
-        setLoading(false) // Dans tous les cas, le chargement initial est terminé
+        setLoading(false) 
       }
     }
     initAuth()
-  }, []) // [] = aucune dépendance → ne se relance jamais après le montage
+  }, []) 
 
-  // ── Fonctions d'authentification ───────────────────────────
-
+  
   const login = async (email: string, password: string) => {
     const res = await api.post('/auth/login', { email, password })
     // Sauvegarde le token pour les prochains démarrages de l'app
