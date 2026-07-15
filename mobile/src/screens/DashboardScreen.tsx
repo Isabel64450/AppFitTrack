@@ -5,12 +5,12 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  Dimensions,    // Donne les dimensions de l'écran (largeur, hauteur)
+  Dimensions,    
   RefreshControl,
 } from 'react-native'
 import { useFocusEffect, useNavigation } from '@react-navigation/native'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
-import { BarChart } from 'react-native-chart-kit' // Bibliothèque de graphiques
+import { BarChart } from 'react-native-chart-kit' 
 import { Ionicons } from '@expo/vector-icons'
 import api from '../services/api'
 import { useAuth } from '../context/AuthContext'
@@ -18,17 +18,17 @@ import LoadingSpinner from '../components/LoadingSpinner'
 import { Colors } from '../constants/colors'
 import { ProgressionStats, RootStackParamList } from '../types'
 
-// Largeur de l'écran en pixels — utilisée pour calculer la largeur du graphique
+
 const screenWidth = Dimensions.get('window').width
 
-// Correspondances pour l'affichage du goal utilisateur
+
 const GOAL_LABELS: Record<string, string> = {
   lose:     'Perte de poids',
   maintain: 'Maintien du poids',
   gain:     'Prise de masse',
 }
 
-// Noms abrégés des mois pour les labels du graphique
+
 const MONTH_LABELS: Record<string, string> = {
   '01': 'Jan', '02': 'Fév', '03': 'Mar', '04': 'Avr',
   '05': 'Mai', '06': 'Juin', '07': 'Juil', '08': 'Août',
