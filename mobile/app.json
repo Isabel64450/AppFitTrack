@@ -21,7 +21,8 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.fittrack.mobile"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -30,6 +31,9 @@
       "eas": {
         "projectId": "53e8cefe-6c26-453d-b8f9-8df5c9bfa417"
       }
-    }
+    },
+    "plugins": [
+      "expo-font"
+    ]
   }
 }
